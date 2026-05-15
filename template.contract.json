@@ -1,0 +1,571 @@
+{
+  "contract_version": "1",
+  "slug": "template-blank-mixed",
+  "version": "1.0.0",
+  "name": "Public + Admin App",
+  "short_description": "Base mixta con landing publica anonima y panel admin privado detras de login. Pensada para apps que necesitan captar visitantes y operar internamente.",
+  "long_description": "Starter Vite + React + TypeScript con dos superficies coexistentes: una landing publica para presentar el negocio y un panel admin protegido por auth para gestionar la operacion. Incluye rutas publicas (/, /login, /forgot-password, /reset-password), ruta privada (/admin) y todo el sistema de auth (login + recuperacion) del SDK DYPAI. No trae backend de dominio: el agente debe crear las tablas y endpoints concretos que pida el usuario.",
+  "status": "staging",
+  "template_type": "base",
+  "maturity": "stable",
+  "quality_score": 0.88,
+  "source": {
+    "kind": "github",
+    "repo": "dyapps-codes/template-blank-mixed",
+    "ref": "main",
+    "path": "",
+    "uri": "https://github.com/dyapps-codes/template-blank-mixed"
+  },
+  "selection": {
+    "categories": [
+      "base",
+      "mixed-app",
+      "public-and-private",
+      "landing-plus-admin"
+    ],
+    "tags": [
+      "vite",
+      "react",
+      "typescript",
+      "tailwind",
+      "shadcn",
+      "auth",
+      "landing",
+      "admin",
+      "public",
+      "private",
+      "marketing"
+    ],
+    "aliases": [
+      "mixed",
+      "publica y privada",
+      "landing + admin",
+      "web + panel",
+      "app con landing y administracion",
+      "negocio con web",
+      "web publica con backoffice",
+      "app de empresa con marketing",
+      "captacion + gestion",
+      "pagina publica y panel interno",
+      "app con cara publica",
+      "tengo web y administracion",
+      "landing y dashboard",
+      "web con login"
+    ],
+    "first_message_examples": [
+      "Quiero una web para mi negocio y un panel donde yo pueda gestionar las cosas",
+      "Necesito una landing para que me encuentren los clientes y dentro un admin para mis datos",
+      "Hazme una pagina publica de mi empresa y un dashboard privado para el equipo",
+      "Una web de presentacion y luego un panel interno para gestionar",
+      "Tengo un negocio que necesita pagina publica y zona privada para administrar",
+      "Quiero captar clientes en una landing y luego que entren a un area privada",
+      "Una web con login que tenga parte publica visible y parte privada solo para mi equipo",
+      "Necesito un sitio que muestre mi servicio fuera y por dentro tenga un panel de control"
+    ],
+    "negative_examples": [
+      "Una app totalmente privada solo para mi equipo, sin web publica",
+      "Solo una landing simple sin login ni admin",
+      "Un dashboard interno sin nada publico",
+      "Solo una pagina de contacto",
+      "Un CRM cerrado sin pagina publica",
+      "Una intranet pura sin parte abierta"
+    ],
+    "use_case_keywords": {
+      "primary": [
+        "landing",
+        "admin",
+        "dashboard",
+        "publico",
+        "privado",
+        "panel",
+        "web + admin",
+        "captacion + gestion"
+      ],
+      "natural_language": [
+        "pagina publica",
+        "web del negocio",
+        "panel interno",
+        "zona privada",
+        "administrar",
+        "gestionar",
+        "captar clientes",
+        "presentar el negocio"
+      ],
+      "domains": [
+        "empresa",
+        "negocio",
+        "servicio",
+        "marca",
+        "equipo",
+        "clientes"
+      ],
+      "actions": [
+        "mostrar servicio",
+        "captar leads",
+        "presentar empresa",
+        "gestionar internamente",
+        "controlar operaciones",
+        "administrar contenido"
+      ],
+      "anti": [
+        "solo privado",
+        "solo publico",
+        "intranet",
+        "ecommerce completo",
+        "marketplace abierto"
+      ]
+    },
+    "industries": [
+      "general"
+    ],
+    "use_cases": [
+      "landing-with-admin",
+      "marketing-plus-operations",
+      "business-site-with-backoffice",
+      "public-presentation-private-operation",
+      "lead-capture-and-management"
+    ],
+    "visual_styles": [
+      "modern-marketing-plus-clean-admin",
+      "warm-landing-cool-backoffice"
+    ],
+    "best_for": [
+      "Negocios que necesitan presencia publica y zona interna para operar.",
+      "Apps donde el flujo natural es captar publico afuera y gestionar adentro.",
+      "Proyectos que mezclan marketing/branding visible con administracion privada.",
+      "Cuando el usuario menciona explicitamente landing + admin, web + panel, o publico + privado."
+    ],
+    "not_for": [
+      "Apps totalmente privadas sin necesidad de cara publica; usar template-auth.",
+      "Landings puras sin necesidad de login ni admin; usar template-blank-web.",
+      "Verticales con plantilla dedicada como reservas, clinica, gimnasio o ecommerce.",
+      "Apps donde el publico unicamente reserva o compra y no hay diferencia entre publico y privado."
+    ]
+  },
+  "agent_decision_signals": {
+    "must_match_one_of": [
+      "landing",
+      "publico",
+      "publica",
+      "web",
+      "marketing",
+      "negocio",
+      "presentar",
+      "captar"
+    ],
+    "must_match_with_one_of": [
+      "admin",
+      "privado",
+      "privada",
+      "panel",
+      "gestionar",
+      "dashboard",
+      "interno",
+      "login"
+    ],
+    "must_not_match_alone": [
+      "solo landing",
+      "solo admin",
+      "solo intranet",
+      "solo dashboard"
+    ],
+    "ambiguous_signal_action": "prefer_if_user_says_both_public_and_private",
+    "fallback_priority": "medium",
+    "selection_hint": "Usar cuando el usuario describe AMBAS superficies: una cara publica (landing/marketing/presentacion) y un area privada (admin/panel/login). Si solo menciona una, preferir template-blank-web (solo publica) o template-auth (solo privada)."
+  },
+  "access_profile": {
+    "app_visibility": "mixed",
+    "auth_scope": "admin_only",
+    "has_public_area": true,
+    "has_admin_area": true,
+    "root_requires_auth": false,
+    "home_path": "/",
+    "admin_path": "/admin",
+    "login_path": "/login",
+    "forgot_password_path": "/forgot-password",
+    "password_recovery_path": "/reset-password",
+    "notes": "La raiz es publica (Landing). Las rutas /login, /forgot-password y /reset-password tambien son publicas. /admin y cualquier ruta debajo de /admin estan protegidas por ProtectedRoute."
+  },
+  "routes": [
+    {
+      "path": "/",
+      "name": "Landing",
+      "visibility": "public",
+      "component": "src/pages/Landing.tsx",
+      "purpose": "Pagina publica de presentacion. El agente debe adaptarla al negocio del usuario: copy, secciones, branding, CTA hacia login o registro."
+    },
+    {
+      "path": "/login",
+      "name": "Login",
+      "visibility": "public",
+      "component": "src/pages/Login.tsx",
+      "purpose": "Acceso al area privada con email/password."
+    },
+    {
+      "path": "/forgot-password",
+      "name": "Forgot password",
+      "visibility": "public",
+      "component": "src/pages/ForgotPassword.tsx",
+      "purpose": "Solicitud de recuperacion de password."
+    },
+    {
+      "path": "/reset-password",
+      "name": "Reset password",
+      "visibility": "public",
+      "component": "src/pages/ResetPassword.tsx",
+      "purpose": "Cambio de password tras recovery."
+    },
+    {
+      "path": "/admin",
+      "name": "Admin",
+      "visibility": "private",
+      "component": "src/pages/Admin.tsx",
+      "purpose": "Panel admin privado. El agente puede convertirlo en el modulo principal de gestion o crear sub-rutas privadas bajo /admin."
+    }
+  ],
+  "design_system": {
+    "color_space": "HSL",
+    "theme_file": "src/index.css",
+    "tailwind_version": "3.x",
+    "fonts": {
+      "sans": "Geist (loaded via Google Fonts)",
+      "display": "Geist (same family; use font-display utility for hero headings)",
+      "mono": "Geist Mono"
+    },
+    "palette": {
+      "intent": "professional + warm accent (blue primary, orange accent)",
+      "primary": "214 84% 56%",
+      "accent": "24 100% 60%",
+      "background": "0 0% 100%",
+      "secondary": "220 26% 18%",
+      "text": "224 15% 15%",
+      "light_mode": "default HSL tokens in src/index.css",
+      "dark_mode": "available via .dark class on html"
+    },
+    "animations": [
+      {
+        "name": "animate-entrance",
+        "purpose": "Premium slide-up + fade. Apply to hero sections and key surfaces"
+      },
+      {
+        "name": "animate-reveal",
+        "purpose": "Clip-path reveal left-to-right. Apply to logos, brand marks, key headings"
+      },
+      {
+        "name": "animate-marquee",
+        "purpose": "Infinite horizontal scroll. Use for client logos, badges, partner rows"
+      },
+      {
+        "name": "animate-fade-in",
+        "purpose": "Light fade-up on scroll or initial mount"
+      }
+    ],
+    "easing": "--ease-out-expo (cubic-bezier(0.19, 1, 0.22, 1)) is the premium curve. Prefer it over default ease-out for marketing surfaces",
+    "guidance": "Edit src/index.css to retune the palette by changing the HSL values in :root. Keep the Tailwind 3/shadcn token structure (hsl(var(--token))). Keep this HSL color system unless the template is migrated first. Use existing animate-* utilities and reusable classes instead of inventing new patterns."
+  },
+  "frontend_contract": {
+    "framework": "vite-react",
+    "language": "typescript",
+    "router": "react-router-dom",
+    "styling": "tailwindcss 3 + shadcn/ui (HSL CSS variables in src/index.css)",
+    "icons": "lucide-react",
+    "state": [
+      "@tanstack/react-query",
+      "React state"
+    ],
+    "sdk": {
+      "client_file": "src/lib/dypai.ts",
+      "import": "import { dypai } from '@/lib/dypai'",
+      "api_patterns": [
+        "dypai.api.get(name)",
+        "dypai.api.post(name, body)",
+        "dypai.api.upload(name, file)"
+      ],
+      "auth_patterns": [
+        "useAuth()",
+        "DypaiProvider",
+        "ProtectedRoute"
+      ]
+    },
+    "entrypoints": [
+      "src/main.tsx",
+      "src/App.tsx"
+    ],
+    "files": [
+      "src/App.tsx",
+      "src/pages/Landing.tsx",
+      "src/pages/Admin.tsx",
+      "src/pages/Login.tsx",
+      "src/pages/ForgotPassword.tsx",
+      "src/pages/ResetPassword.tsx",
+      "src/pages/NotFound.tsx",
+      "src/components/landing/Header.tsx",
+      "src/components/landing/Hero.tsx",
+      "src/components/landing/Features.tsx",
+      "src/components/landing/CTA.tsx",
+      "src/components/landing/Footer.tsx",
+      "src/lib/dypai.ts",
+      "src/lib/utils.ts",
+      "src/index.css"
+    ],
+    "important_directories": [
+      "src/components/ui",
+      "src/components/landing",
+      "src/hooks",
+      "src/lib",
+      "src/pages"
+    ],
+    "landing_components": {
+      "compose_file": "src/pages/Landing.tsx",
+      "sections": [
+        {
+          "name": "Header",
+          "file": "src/components/landing/Header.tsx",
+          "purpose": "Navbar sticky con logo + nav links + boton Admin → /login"
+        },
+        {
+          "name": "Hero",
+          "file": "src/components/landing/Hero.tsx",
+          "purpose": "Headline + subtitulo + CTAs principales"
+        },
+        {
+          "name": "Features",
+          "file": "src/components/landing/Features.tsx",
+          "purpose": "Grid de value props con icons"
+        },
+        {
+          "name": "CTA",
+          "file": "src/components/landing/CTA.tsx",
+          "purpose": "Cierre final con CTA hacia /login"
+        },
+        {
+          "name": "Footer",
+          "file": "src/components/landing/Footer.tsx",
+          "purpose": "Copyright + enlaces secundarios"
+        }
+      ],
+      "guidance": "La landing esta distribuida en componentes por seccion. Edita el component especifico que el usuario menciona ('cambia el hero', 'arregla los features') en lugar de regenerar Landing.tsx entero. Para reordenar secciones, edita src/pages/Landing.tsx."
+    },
+    "safe_to_replace": [
+      "src/pages/Landing.tsx",
+      "src/pages/Admin.tsx",
+      "src/components/landing/Header.tsx",
+      "src/components/landing/Hero.tsx",
+      "src/components/landing/Features.tsx",
+      "src/components/landing/CTA.tsx",
+      "src/components/landing/Footer.tsx"
+    ],
+    "safe_to_extend": [
+      "src/App.tsx"
+    ],
+    "preserve_unless_requested": [
+      "src/lib/dypai.ts",
+      "src/pages/Login.tsx",
+      "src/pages/ForgotPassword.tsx",
+      "src/pages/ResetPassword.tsx",
+      "src/App.tsx auth routes",
+      "src/App.tsx ProtectedRoute wrapper"
+    ],
+    "expected_first_build_surface": {
+      "max_new_pages": 2,
+      "primary_files": [
+        "src/pages/Landing.tsx",
+        "src/pages/Admin.tsx"
+      ],
+      "guidance": "El primer build debe transformar la Landing en una presentacion creible del negocio del usuario Y el Admin en el primer modulo privado funcional. No construir toda la suite; una pasada visual potente publica + un modulo privado real."
+    }
+  },
+  "backend_contract": {
+    "mode": "empty-domain-backend",
+    "has_dypai_folder": false,
+    "built_in_capabilities": [
+      "auth"
+    ],
+    "endpoints": [],
+    "workflows": [],
+    "guidance": [
+      "Crear tablas y endpoints de dominio solo cuando la funcionalidad lo necesite (formularios de contacto que persisten, gestion de leads, datos del admin).",
+      "No crear endpoints de autenticacion: auth ya existe en el SDK.",
+      "Si el formulario de contacto de la landing debe persistir, crear tabla + endpoint reales y validarlos."
+    ]
+  },
+  "backend_reuse_contract": {
+    "existing_tables": [],
+    "existing_endpoints": [],
+    "existing_workflows": [],
+    "platform_capabilities": [
+      "auth"
+    ],
+    "must_reuse": [
+      "Auth del SDK DYPAI",
+      "ProtectedRoute para rutas privadas"
+    ],
+    "may_extend": [
+      "Crear tablas de dominio (leads, contactos, contenido editable)",
+      "Crear endpoints de dominio",
+      "Anadir sub-rutas bajo /admin"
+    ],
+    "must_not_duplicate": [
+      "No crear endpoints de login/signup/password recovery",
+      "No crear tabla users propia para auth"
+    ]
+  },
+  "database_contract": {
+    "mode": "empty-domain-schema",
+    "schema_path": null,
+    "tables": [],
+    "system_tables_used": [
+      "system.users",
+      "system.auth_config"
+    ],
+    "guidance": [
+      "No hay tablas de dominio en la plantilla.",
+      "Usar user_id TEXT cuando una tabla pertenezca al usuario autenticado.",
+      "No usar user_id UUID ni casts ::uuid para auth.user.id."
+    ]
+  },
+  "asset_contract": {
+    "public_assets": [],
+    "generated_images": [],
+    "guidance": [
+      "Para la landing, generar imagen hero y assets visuales si aportan wow al primer impacto.",
+      "No meter imagenes pesadas como contexto del modelo; usar rutas o resumen.",
+      "Mantener una direccion visual consistente entre landing publica y admin privado (mismo branding, distinta densidad)."
+    ]
+  },
+  "media_plan": {
+    "should_generate_images": true,
+    "default_image_count": 1,
+    "max_image_count": 3,
+    "image_targets": [
+      "landing hero",
+      "landing seccion destacada (opcional)",
+      "admin empty-state visual (opcional)"
+    ],
+    "guidance": "Una landing necesita al menos una imagen hero potente. Generar maximo 3 imagenes en el primer build. No generar imagenes para el admin a menos que sea un empty-state visualmente importante."
+  },
+  "default_first_screen": {
+    "page_public": "src/pages/Landing.tsx",
+    "page_private": "src/pages/Admin.tsx",
+    "shape_public": "landing con hero (titulo + subtitulo + CTA), 2-3 secciones (servicios/beneficios/testimonios) y footer con CTA hacia login o contacto",
+    "shape_private": "admin con 2-3 metric cards, una tabla principal o lista de elementos, estado vacio y accion primaria",
+    "data_strategy": "crear backend real si el admin gestiona datos persistentes; usar contenido visual editable o seeded para la landing en primer build",
+    "interaction_public": "CTA principal lleva a /login o a /contacto si se anade",
+    "interaction_private": "accion primaria crea o lista datos reales si hay backend",
+    "routing": "registrar rutas nuevas en src/App.tsx; publicas fuera del ProtectedRoute, privadas dentro"
+  },
+  "agent_brief": {
+    "already_included": [
+      "Landing publica reemplazable en src/pages/Landing.tsx",
+      "Admin privado reemplazable en src/pages/Admin.tsx",
+      "Auth publica: login, forgot password y reset password",
+      "Rutas privadas protegidas con ProtectedRoute en src/App.tsx",
+      "SDK DYPAI configurado en src/lib/dypai.ts",
+      "shadcn/ui, Tailwind, react-query, sonner y lucide-react listos"
+    ],
+    "adaptation_steps": [
+      "Adaptar Landing.tsx al negocio del usuario: nombre, hero, secciones, copy, CTA, branding.",
+      "Adaptar Admin.tsx al primer modulo privado (gestion de leads, contenido, datos del negocio).",
+      "Crear tabla y endpoint solo para la funcionalidad principal que necesite datos.",
+      "Conectar la UI con dypai.api.get/post/upload, nunca con fetch directo.",
+      "Si la landing tiene formulario (contacto, lead capture, newsletter), persistirlo con endpoint real.",
+      "Validar build y backend antes de cerrar."
+    ],
+    "do_not_rebuild": [
+      "No rehacer auth, login ni recovery",
+      "No crear endpoints de autenticacion",
+      "No crear tabla users propia para auth",
+      "No quitar ProtectedRoute del admin",
+      "No mover /admin a /public por error"
+    ],
+    "first_build_goal": "Dejar una landing publica visualmente potente adaptada al negocio Y un admin privado con al menos una funcionalidad real (gestion de algun recurso del negocio). Backend real solo si hay persistencia.",
+    "completion_checks": [
+      "La app compila",
+      "La landing en / muestra contenido del negocio del usuario (no placeholder)",
+      "El admin en /admin sigue protegido y redirige a /login si no hay sesion",
+      "El login sigue funcionando",
+      "Si hay formularios o datos, existe endpoint real validado",
+      "No hay llamadas fetch directas a endpoints DYPAI"
+    ]
+  },
+  "customization_targets": [
+    {
+      "key": "app_name",
+      "files": [
+        "src/lib/dypai.ts",
+        "src/pages/Landing.tsx"
+      ],
+      "description": "Nombre visible del negocio en la landing y el admin."
+    },
+    {
+      "key": "landing_content",
+      "files": [
+        "src/pages/Landing.tsx"
+      ],
+      "description": "Hero, secciones, copy, CTA y branding visual de la landing publica."
+    },
+    {
+      "key": "admin_primary",
+      "files": [
+        "src/pages/Admin.tsx"
+      ],
+      "description": "Pantalla admin principal que debe convertirse en el primer modulo privado funcional."
+    },
+    {
+      "key": "private_routes",
+      "files": [
+        "src/App.tsx"
+      ],
+      "description": "Sub-rutas privadas bajo /admin si se necesitan."
+    },
+    {
+      "key": "theme",
+      "files": [
+        "src/index.css"
+      ],
+      "description": "Tokens visuales que afectan tanto landing como admin."
+    },
+    {
+      "key": "domain_backend",
+      "files": [
+        "dypai/**"
+      ],
+      "description": "Tablas y endpoints que el agente debe crear si la UI necesita persistencia."
+    }
+  ],
+  "verification_contract": {
+    "commands": [
+      "npm run build"
+    ],
+    "manual_checks": [
+      "La raiz / muestra una landing del negocio del usuario (no placeholder generico).",
+      "Las rutas /login, /forgot-password y /reset-password siguen accesibles publicamente.",
+      "La ruta /admin redirige a /login si no hay sesion.",
+      "Los CTAs de la landing llevan a paginas existentes (login, contacto, signup).",
+      "No hay llamadas fetch directas a endpoints DYPAI; se usa el SDK."
+    ],
+    "agent_checks": [
+      "Si se anaden endpoints, validarlos antes de cerrar.",
+      "Si se cambian rutas en App.tsx, mantener la separacion publico/privado.",
+      "Si se anade formulario en landing que persiste datos, crear endpoint real y validarlo."
+    ]
+  },
+  "required_env_vars": [
+    "VITE_DYPAI_URL"
+  ],
+  "required_integrations": [],
+  "preferred_providers": {
+    "frontend": "vite",
+    "auth": "better-auth via DYPAI SDK",
+    "backend": "DYPAI workflows"
+  },
+  "dependencies": [
+    "@dypai-ai/client-sdk",
+    "@tanstack/react-query",
+    "react-router-dom",
+    "lucide-react",
+    "sonner",
+    "zod"
+  ],
+  "agent_instructions": "Usa esta plantilla cuando el usuario necesita AMBAS superficies: una landing publica y un panel admin privado. Auth, ProtectedRoute y rutas de recovery ya existen: no rehagas auth. En el primer build adapta Landing.tsx al negocio del usuario (hero potente, copy, CTA) y convierte Admin.tsx en el primer modulo privado real. Si la landing tiene formularios (contacto, leads, newsletter), crea tabla + endpoint reales para persistirlos. Si el admin gestiona datos, lo mismo. Usa dypai.api.get/post/upload desde src/lib/dypai.ts, nunca fetch directo. Mantienes la separacion publico/privado: rutas publicas fuera del ProtectedRoute, privadas dentro. Si el usuario solo quiere landing pura o solo admin, esta plantilla no es la mejor: redirige a template-blank-web o template-auth."
+}
